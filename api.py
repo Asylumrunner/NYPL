@@ -10,7 +10,7 @@ class Book:
 		self._copies = None
 
 	def __str__(self):
-		returnString = "title: %s\n author: %s\n" % (self.title.encode("utf8"),self.author)
+		returnString = "title: {}\n author: {}\n".format(self.title.encode("utf8"),self.author)
 		if self.copies is not None:
 			returnString = returnString + "availability:\n\t"
 			for copy in self.copies:
@@ -19,7 +19,7 @@ class Book:
 		return returnString + "\n"
 	
 	def __repr__(self):
-		return "<Book instance: %s>" % (self.title.encode("utf8"))
+		return "<Book instance: {}>".format(self.title.encode("utf8"))
 	
 	def update_copies(self):
 		if not self.link_to_copies:
@@ -51,7 +51,7 @@ class Copy:
 		return returnString + "\n"
 	
 	def __repr__(self):
-		return "Copy at %s" % self.location
+		return "Copy at {}".format(self.location)
 	
 
 
@@ -138,7 +138,7 @@ def get_copies(url):
 		except:
 			pass
 
-		print location,collection,callNo,status
+		print(location,collection,callNo,status)
 		copy=Copy(location,collection,callNo, status)
 		copies.append(copy)
 
